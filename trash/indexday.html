@@ -1,0 +1,218 @@
+<html>
+<head>
+    <title>Gurukul</title>
+<style>
+    .bg{background-image:url('daymode.png'); background-repeat: no-repeat; background-size: cover;height:100%;width:100%; }
+    .navbar { width:90%; text-align: center; border-radius: 5px; color: #fff; font-size: 16px; }
+    .logo{height:15%; width:10%;padding:2%;}
+    .btn{background-color:inherit; color: black; font-size:16px; border:inherit;}
+    .left{float:left;}
+    .right{float:right;}  
+    .white{color:#fff;}  
+    .black{color:black;} 
+    .round{border-radius:15px;}
+    .swtchrad{padding-top:0.5%; padding-right:2%; }
+    .navbar { width: 80%; overflow: hidden; background-color: inherit; box-shadow: 0px 8px 16px 0px rgba(0,0,0,1.0)}
+    .navbar a {float: left; font-size: 16px; color:black; text-align: center; padding: 14px 16px; text-decoration: none; }
+    .dropdown { float: left; overflow: hidden; }
+    .dropdown .dropbtn {
+                        font-size: 16px;  
+                        border: none;
+                        outline: none;
+                        color: black;
+                        padding: 14px 16px;
+                        background-color: inherit;
+                        font-family: inherit;
+                        margin: 0;
+                       }
+
+    .navbar a:hover, .dropdown:hover .dropbtn { background-color: yellow;font-size:17px; border-radius:15px; color:red; }
+
+    .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        background-color: inherit;
+                        border-radius:15px;
+                        min-width: 160px;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,1.0);
+                        z-index: 1;
+                       }
+
+    .dropdown-content a { float: none; color: black; padding: 12px 16px; text-decoration: none; display: block; text-align: left; }
+
+    .dropdown-content a:hover { background-color: yellow; }
+
+    .dropdown:hover .dropdown-content { display: block; }
+    
+</style>
+</head>
+
+<body>
+<div class="bg round">
+   <div>
+       <div>
+            <img src="logonbg.png" class="logo left" onclick="index()"></img>
+       </div> 
+          
+       <br><br>
+        <center>
+            <div class="navbar " >
+                
+              <!--  <a onclick="openTabs('Home')">Home</a> &nbsp;&nbsp;  -->    
+                                
+                <div class="dropdown">
+                    <button class="dropbtn">About &#11183; </button> &nbsp;&nbsp;
+                    <div class="dropdown-content">
+                        <a onclick="openTabs('Campus')">Campus</a>
+                        <a onclick="openTabs('GurukulTrust')">Gurukul Trust</a>
+                        <a onclick="openTabs('Messages')">Messages</a>
+                        <a onclick="openTabs('vision&mission')">vision & mission</a>
+                    </div>
+                </div> 
+                                                      
+                <div class="dropdown">
+                    <button class="dropbtn">Facilities &#11183; </button> &nbsp;&nbsp;
+                    <div class="dropdown-content">
+                        <a onclick="openTabs('ComputerLaboratory')">Computer Laboratory</a>
+                        <a onclick="openTabs('ScienceLaboratory')">Science Laboratory</a>
+                        <a onclick="openTabs('Library')">Library</a>
+                        <a onclick="openTabs('Auditorium')">Auditorium</a>
+                    </div>
+                </div>     
+                    
+                <div class="dropdown">
+                    <button class="dropbtn">Academics &#11183; </button> &nbsp;&nbsp;
+                    <div class="dropdown-content">
+                        <a onclick="openTabs('Sports')">Sports</a>
+                        <a onclick="openTabs('ExtraCurricularActivities')">Extra Curricular Activities</a>
+                        <a onclick="openTabs('WorkingHours')">Working Hours</a>
+                        <a onclick="openTabs('SchoolAdmission')">School Admission</a>
+                    </div>
+                </div>      
+            
+                <div class="dropdown">
+                    <button class="dropbtn">Faculties &#11183; </button> &nbsp;&nbsp;
+                    <div class="dropdown-content">
+                        <a onclick="openTabs('TeachingStaff')">Teaching Staff</a>
+                        <a onclick="openTabs('NonTeachingStaff')">Non-Teaching Staff</a>
+                    </div>
+                </div>                  
+                    
+                <a onclick="openTabs('Gallery')">Gallery</a> &nbsp;&nbsp;
+                <a onclick="openTabs('ContactUs')">Contact Us</a> &nbsp;&nbsp;
+                <!-- Trigger the modal with a button -->
+                <a id="myBtn"> Login</a> &nbsp;&nbsp;
+                <!-- wall of frame -->
+                <a onclick="openTabs('WallofFame')"> Wall of Fame</a> &nbsp;&nbsp; 
+                
+                <div class="right swtchrad">
+                    <label class="black">Mode</label><br>
+                    <input type="radio" id="switch" name="switch" onClick="daymode();" /><label class="black" >Day</label>
+                    <input type="radio" id="switch" name="switch" onClick="nightmode();" /><label class="black">Night</label>
+                </div>
+                           
+            </div>
+        </center>       
+    </div>
+
+    <div id="Home" class="psn-container psn-display-container tabs">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['home'];?> </p> 
+      </div>
+  
+      <div id="Campus" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['campus'];?> </p> 
+  
+      </div>
+         
+      <div id="GurukulTrust" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['trust'];?> </p> 
+      </div>
+   
+      <div id="Messages" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['message'];?> </p> 
+      </div>	
+   
+      <div id="vision&mission" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['vision'];?> </p> 
+      </div>	
+    
+      <div id="ComputerLaboratory" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['computer'];?> </p> 
+      </div>
+  
+      <div id="ScienceLaboratory" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['science'];?> </p> 
+      </div>
+        
+      <div id="Library" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['library'];?> </p> 
+      </div>
+  
+      <div id="Auditorium" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['auditorium'];?> </p> 
+      </div>
+      
+      <div id="Sports" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['sports'];?> </p> 
+      </div>
+  
+      <div id="ExtraCurricularActivities" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['extra'];?> </p> 
+      </div>
+  
+      <div id="WorkingHours" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['working'];?> </p> 
+      </div>
+  
+      <div id="SchoolAdmission" class="psn-container psn-display-container tabs" style="display:none">
+        <span onclick="this.parentElement.style.display='none'" class="psn-button psn-large psn-display-topright">&times;</span>
+        <p> <?php echo $info['admission'];?> </p> 
+      </div>
+
+</div>
+
+
+    <script>
+        function index() 
+        {
+            location.replace("index.php")
+        }
+
+        function daymode() 
+        {
+            location.replace("indexday.html")
+        }
+
+        function nightmode() 
+        {
+            location.replace("indexnight.html")
+        }
+
+         // closable tabs 
+      function openTabs(tabsName) 
+      {
+        var i;
+        var x = document.getElementsByClassName("tabs");
+        for (i = 0; i < x.length; i++) 
+        {
+          x[i].style.display = "none";  
+        }
+        document.getElementById(tabsName).style.display = "block";  
+      }
+
+      
+    </script>
+</body>
+</hrtml>
